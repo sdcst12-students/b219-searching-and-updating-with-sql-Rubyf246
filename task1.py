@@ -201,3 +201,38 @@ else:
     result = cursor.fetchall()
     for i in result:
         print(i)
+
+def update_member ():
+
+
+
+
+
+update= input("Do you want to update a customer?")
+
+if update=="Yes":
+    updatechoice= input(" Choose: A: change first name  B: change last name  C: change phone number D: change email \n E: change address F: change city G: change city H: change postal code \n I: update information ")
+        if updatechoice == "A":
+            update_member
+        elif updatechoice =="B":
+            update_member
+        elif updatechoice =="C":
+            update_member
+        elif updatechoice == "D":
+            update_member 
+        elif updatechoice =="E":
+            update_member
+        elif updatechoice == "F":
+            update_member 
+        elif updatechoice == "G":
+            update_member
+        elif updatechoice == "H": 
+            update_member
+        elif updatechoice == "I":
+            update_member
+        else:
+        
+elif update == "No":
+    pass
+else:
+    print("Try again. Invalid response")
