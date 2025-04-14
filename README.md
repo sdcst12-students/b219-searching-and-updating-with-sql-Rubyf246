@@ -96,7 +96,6 @@ Part A: Create a function that will accept 2 parameters:
 * id: integer key value for the table entry to be changed
 * data: a dictionary of values to be updated
 
-
 Note that you will need to also have a function to allow you to find the id of the entry you want changed
 Part B:Create a function that will allow you to search for a current user based on a certain criteria.  The search should display the data for all of the matches so you can select the correct ID for the entry you want to update
 

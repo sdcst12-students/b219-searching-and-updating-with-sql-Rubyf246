@@ -200,38 +200,56 @@ else:
     cursor.execute(query)
     result = cursor.fetchall()
     for i in result:
-        print(i)
-
-def update_member ():
-
-
-
-
+        print(i)                                                                              
 
 update= input("Do you want to update a customer?")
 
 if update=="Yes":
-    updatechoice= input(" Choose: A: change first name  B: change last name  C: change phone number D: change email \n E: change address F: change city G: change city H: change postal code \n I: update information ")
-        if updatechoice == "A":
-            update_member
-        elif updatechoice =="B":
-            update_member
-        elif updatechoice =="C":
-            update_member
-        elif updatechoice == "D":
-            update_member 
-        elif updatechoice =="E":
-            update_member
-        elif updatechoice == "F":
-            update_member 
-        elif updatechoice == "G":
-            update_member
-        elif updatechoice == "H": 
-            update_member
-        elif updatechoice == "I":
-            update_member
-        else:
-        
+    updatechoice= input(" Choose: A: change first name  B: change last name  C: change phone number D: change email \n E: change address F: change city G: change postal code \n H: update information ")
+    if updatechoice == "A":
+        custoid= input(" What is the id you want to change? ---->  ")
+        newfname= input("What is the first name you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET fname = newfname, ...
+                WHERE id = custoid;'''
+    elif updatechoice =="B":
+        custoid= input(" What is the id you want to change? ---->  ")
+        newlname= input("What is the last name you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET lname = newlname, ...
+                WHERE id = custoid;'''
+    elif updatechoice =="C":
+        custoid= input(" What is the id you want to change? ---->  ")
+        newphone= input("What is the phone number you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET phone = newphone, ...
+                WHERE id = custoid;'''
+    elif updatechoice == "D":
+        custoid= input(" What is the id you want to change? ---->  ")
+        newemail= input("What is the email you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET email = newemail, ...
+                WHERE id = custoid;'''
+    elif updatechoice =="E":
+        custoid= input(" What is the id you want to change? ---->  ")
+        newaddress= input("What is the address you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET address = newaddress, ...
+                WHERE id = custoid;'''
+    elif updatechoice == "F":
+        custoid= input(" What is the id you want to change? ---->  ")
+        newcity= input("What is the city you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET city = newcity, ...
+                WHERE id = custoid;'''
+    elif updatechoice == "G": 
+        custoid= input(" What is the id you want to change? ---->  ")
+        newpostalcode= input("What is the postal code you want to replace it with?---->  ")
+        query= '''UPDATE customers
+                SET postalcode = newpostalcode, ...
+                WHERE id = custoid;'''
+    elif updatechoice == "H":
+        query = '''SELECT * FROM Customers;'''
 elif update == "No":
     pass
 else:
