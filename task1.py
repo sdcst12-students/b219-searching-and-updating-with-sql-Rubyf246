@@ -173,8 +173,8 @@ def search_customer (search_field, search_by_value):
 
 ###################  Ask which function they want to excute  ################
 
-choice = input("Input your choice (search/add) ---->    ")
-if choice == "search":
+choice = input("Input your choice (search/add) ---->    ").lower().replace(" ", "")
+while choice == "search":
     field = input ("What do you want to search by:    ") # ask the user what category they want to search by and out it into field 
     if field not in ("id", "first name", "last name", "phone number", "email", "city", "address", "postal code"):
         print ("Invalid entry search. Try again")
@@ -183,7 +183,7 @@ if choice == "search":
         value = input ("what is your value you want to search by:    ") 
         search_customer (field,value)
         
-else: 
+while choice == "add":
    #################  Add a new customer ###################
     print ("\n----------------Add a customer :------------------");    
     inpt_fname = input("Enter first name: ")
