@@ -173,13 +173,8 @@ def search_customer (search_field, search_by_value):
 
 ###################  Ask which function they want to excute  ################
 
-<<<<<<< HEAD
 choice = input("Input your choice (search/add/update) ---->    ").lower().replace(" ", "")
 if choice == "search":
-=======
-choice = input("Input your choice (search/add) ---->    ").lower().replace(" ", "")
-while choice == "search":
->>>>>>> 9fa212c7037eaa4fde6743406012bf40b5e19d12
     field = input ("What do you want to search by:    ") # ask the user what category they want to search by and out it into field 
     if field not in ("id", "first name", "last name", "phone number", "email", "city", "address", "postal code"):
         print ("Invalid entry search. Try again")
@@ -188,11 +183,7 @@ while choice == "search":
         value = input ("what is your value you want to search by:    ") 
         search_customer (field,value)
         
-<<<<<<< HEAD
 if choice == "add":
-=======
-while choice == "add":
->>>>>>> 9fa212c7037eaa4fde6743406012bf40b5e19d12
    #################  Add a new customer ###################
     print ("\n----------------Add a customer :------------------");    
     inpt_fname = input("Enter first name: ")
@@ -273,18 +264,18 @@ if choice=="update":
         
     elif updatechoice == "H":
         query = '''SELECT * FROM Customers;'''
-else:
-    print("Try again. Invalid response")
 
-connection.commit()   
+    connection.commit()   
 
-## display updated customer info
-query = """select * from customers where id = ?"""  
-cursor.execute(query, (custoid,))  
-result = cursor.fetchall()
+    ## display updated customer info
+    query = """select * from customers where id = ?"""  
+    cursor.execute(query, (custoid,))  
+    result = cursor.fetchall()
 
 
-print ("----------------display updated customer info:------------------");
+    print ("----------------display updated customer info:------------------");
 
-for i in result:
-    print(i)
+    for i in result:
+        print(i)
+else: 
+    print("invalid response")
