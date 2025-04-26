@@ -210,47 +210,76 @@ if update=="Yes":
         custoid= input(" What is the id you want to change? ---->  ")
         newfname= input("What is the first name you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET fname = newfname, ...
-                WHERE id = custoid;'''
+                SET fname = ? 
+                WHERE id = ?;'''
+        #print (query)
+        ## execute query
+        cursor.execute(query, (newfname, custoid,))
+                
     elif updatechoice =="B":
         custoid= input(" What is the id you want to change? ---->  ")
         newlname= input("What is the last name you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET lname = newlname, ...
-                WHERE id = custoid;'''
+                SET lname = ?
+                WHERE id = ?;'''
+        cursor.execute(query, (newlname, custoid,))
+        
     elif updatechoice =="C":
         custoid= input(" What is the id you want to change? ---->  ")
         newphone= input("What is the phone number you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET phone = newphone, ...
-                WHERE id = custoid;'''
+                SET phone = ?
+                WHERE id = ?;'''
+        cursor.execute(query, (newphone, custoid,))
+        
     elif updatechoice == "D":
         custoid= input(" What is the id you want to change? ---->  ")
         newemail= input("What is the email you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET email = newemail, ...
-                WHERE id = custoid;'''
+                SET email = ?
+                WHERE id = ?;'''
+        cursor.execute(query, (newemail, custoid,))
+        
     elif updatechoice =="E":
         custoid= input(" What is the id you want to change? ---->  ")
         newaddress= input("What is the address you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET address = newaddress, ...
-                WHERE id = custoid;'''
+                SET address = ?
+                WHERE id = ?;'''
+        cursor.execute(query, (newaddress, custoid,))
+        
     elif updatechoice == "F":
         custoid= input(" What is the id you want to change? ---->  ")
         newcity= input("What is the city you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET city = newcity, ...
-                WHERE id = custoid;'''
+                SET city = ?
+                WHERE id = ?;'''
+        cursor.execute(query, (newcity, custoid,))
+        
     elif updatechoice == "G": 
         custoid= input(" What is the id you want to change? ---->  ")
         newpostalcode= input("What is the postal code you want to replace it with?---->  ")
         query= '''UPDATE customers
-                SET postalcode = newpostalcode, ...
-                WHERE id = custoid;'''
+                SET postalcode = ?
+                WHERE id = ?;'''
+        cursor.execute(query, (newpostalcode, custoid,))
+        
     elif updatechoice == "H":
         query = '''SELECT * FROM Customers;'''
 elif update == "No":
     pass
 else:
     print("Try again. Invalid response")
+
+connection.commit()   
+
+## display updated customer info
+query = """select * from customers where id = ?"""  
+cursor.execute(query, (custoid,))  
+result = cursor.fetchall()
+
+
+print ("----------------display updated customer info:------------------");
+
+for i in result:
+    print(i)
