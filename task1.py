@@ -173,7 +173,7 @@ def search_customer (search_field, search_by_value):
 
 ###################  Ask which function they want to excute  ################
 
-choice = input("Input your choice (search/add) ---->    ")
+choice = input("Input your choice (search/add/update) ---->    ").lower().replace(" ", "")
 if choice == "search":
     field = input ("What do you want to search by:    ") # ask the user what category they want to search by and out it into field 
     if field not in ("id", "first name", "last name", "phone number", "email", "city", "address", "postal code"):
@@ -183,7 +183,7 @@ if choice == "search":
         value = input ("what is your value you want to search by:    ") 
         search_customer (field,value)
         
-else: 
+if choice == "add":
    #################  Add a new customer ###################
     print ("\n----------------Add a customer :------------------");    
     inpt_fname = input("Enter first name: ")
@@ -202,9 +202,7 @@ else:
     for i in result:
         print(i)                                                                              
 
-update= input("Do you want to update a customer?")
-
-if update=="Yes":
+if choice=="update":
     updatechoice= input(" Choose: A: change first name  B: change last name  C: change phone number D: change email \n E: change address F: change city G: change postal code \n H: update information ")
     if updatechoice == "A":
         custoid= input(" What is the id you want to change? ---->  ")
@@ -266,8 +264,6 @@ if update=="Yes":
         
     elif updatechoice == "H":
         query = '''SELECT * FROM Customers;'''
-elif update == "No":
-    pass
 else:
     print("Try again. Invalid response")
 
